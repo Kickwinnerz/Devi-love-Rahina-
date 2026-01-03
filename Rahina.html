@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love, Rahina | Devi Proposal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #fff;
+            overflow-x: hidden;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><text y="28" font-size="28">❤️</text></svg>'), auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            padding: 50px 20px;
+            animation: fadeIn 2s ease-in;
+        }
+
+        .header h1 {
+            font-size: 4em;
+            background: linear-gradient(45deg, #ff00cc, #3333ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        .header p {
+            font-size: 1.5em;
+            color: #a8dadc;
+        }
+
+        /* Floating Hearts Animation */
+        .floating-hearts {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .heart {
+            position: absolute;
+            color: #ff69b4;
+            font-size: 24px;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-50px) rotate(360deg); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes glow {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.5); }
+        }
+
+        /* Section Styles */
+        .section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 0, 204, 0.3);
+        }
+
+        .section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #ff69b4;
+            text-align: center;
+        }
+
+        /* Button Styles */
+        .btn {
+            background: linear-gradient(45deg, #f093fb, #f5576c);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(245, 87, 108, 0.4);
+        }
+
+        .btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Countdown Timer */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .countdown-item {
+            background: rgba(255, 105, 180, 0.3);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            min-width: 100px;
+        }
+
+        .countdown-value {
+            font-size: 3em;
+            font-weight: bold;
+            color: #ff69b4;
+        }
+
+        .countdown-label {
+            font-size: 0.9em;
+            color: #a8dadc;
+        }
+
+        /* Memory Gallery */
+        .memory-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .memory-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .memory-card:hover {
+            transform: scale(1.05);
+            background: rgba(255, 105, 180, 0.3);
+        }
+
+        .memory-card::before {
+            content: '❤️';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 100px;
+            opacity: 0.1;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Love Meter */
+        .love-meter {
+            width: 100%;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .love-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff00cc, #3333ff);
+            width: 0%;
+            transition: width 2s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Quiz Section */
+        .quiz-container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+        }
+
+        .quiz-question {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            color: #ff69b4;
+        }
+
+        .quiz-option {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .quiz-option:hover {
+            background: rgba(255, 105, 180, 0.3);
+            transform: translateX(10px);
+        }
+
+        .quiz-option.correct {
+            background: rgba(0, 255, 0, 0.3);
+        }
+
+        .quiz-option.wrong {
+            background: rgba(255, 0, 0, 0.3);
+        }
+
+        /* Message Box */
+        .message-box {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            min-height: 100px;
+            position: relative;
+        }
+
+        .message-text {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #a8dadc;
+        }
+
+        /* Rose Effect */
+        .rose {
+            width: 50px;
+            height: 50px;
+            background: radial-gradient(circle, #ff1744, #ff5252);
+            border-radius: 50% 0;
+            transform: rotate(45deg);
+            display: inline-block;
+            margin: 10px;
+            animation: bloom 3s ease-in-out infinite;
+        }
+
+        @keyframes bloom {
+            0%, 100% { transform: rotate(45deg) scale(1); }
+            50% { transform: rotate(45deg) scale(1.2); }
+        }
+
+        /* Fireworks */
+        .firework {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .firework::before,
+        .firework::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: inherit;
+            animation: explode 1s ease-out forwards;
+        }
+
+        @keyframes explode {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--x), var(--y)) scale(0);
+                opacity: 0;
+            }
+        }
+
+        /* Proposal Section */
+        .proposal-section {
+            background: linear-gradient(135deg, rgba(255, 0, 204, 0.3), rgba(51, 51, 255, 0.3));
+            text-align: center;
+            padding: 60px 40px;
+            border-radius: 30px;
+            border: 3px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .proposal-section h2 {
+            font-size: 3em;
+            margin-bottom: 30px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .proposal-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2.5em; }
+            .countdown { flex-wrap: wrap; }
+            .proposal-buttons { flex-direction: column; }
+        }
+
+        /* Scroll Animations */
+        .hidden {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.5s;
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Particle Canvas */
+        #particleCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -2;
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-hearts" id="heartsContainer"></div>
+    <canvas id="particleCanvas"></canvas>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>For My Beloved Rahina</h1>
+            <p>A Journey of Love by Devi</p>
+            <div class="rose"></div>
+            <div class="rose"></div>
+            <div class="rose"></div>
+        </div>
+
+        <!-- Love Meter Section -->
+        <div class="section hidden">
+            <h2>Our Love Meter</h2>
+            <div class="love-meter">
+                <div class="love-fill" id="loveFill">0%</div>
+            </div>
+            <button class="btn" onclick="fillLoveMeter()">Show My Love</button>
+        </div>
+
+        <!-- Countdown Timer -->
+        <div class="section hidden">
+            <h2>Days Until Our Forever</h2>
+            <div class="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-value" id="days">00</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="hours">00</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="minutes">00</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="seconds">00</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
+            <button class="btn" onclick="setDate()">Set Our Special Date</button>
+        </div>
+
+        <!-- Memory Gallery -->
+        <div class="section hidden">
+            <h2>Our Beautiful Memories</h2>
+            <div class="memory-gallery" id="memoryGallery">
+                <!-- Memory cards will be generated -->
+            </div>
+            <button class="btn" onclick="addMemory()">Add New Memory</button>
+        </div>
+
+        <!-- Love Quiz -->
+        <div class="section hidden">
+            <h2>How Well Do You Know Me?</h2>
+            <div class="quiz-container" id="quizContainer">
+                <div class="quiz-question" id="question"></div>
+                <div id="options"></div>
+                <div id="quizResult"></div>
+            </div>
+            <button class="btn" onclick="startQuiz()">Start Quiz</button>
+        </div>
+
+        <!-- Message Box -->
+        <div class="section hidden">
+            <h2>Love Messages for You</h2>
+            <div class="message-box">
+                <div class="message-text" id="messageText">Click the button to reveal a special message...</div>
+            </div>
+            <button class="btn" onclick="showRandomMessage()">Show Message</button>
+            <button class="btn" onclick="playAudioMessage()">Play Audio Message</button>
+        </div>
+
+        <!-- Song Dedication -->
+        <div class="section hidden">
+            <h2>Our Songs</h2>
+            <div id="songList"></div>
+            <button class="btn" onclick="playRandomSong()">Play Our Song</button>
+            <button class="btn" onclick="dedicateSong()">Dedicate a Song</button>
+        </div>
+
+        <!-- Photo Frame -->
+        <div class="section hidden">
+            <h2>Our Photo Album</h2>
+            <div id="photoFrame" style="text-align: center;">
+                <img id="currentPhoto" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect width='400' height='300' fill='%23f0f0f0'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23999'%3EPHOTO%3C/text%3E%3C/svg%3E" alt="Our Photo" style="max-width: 100%; border-radius: 20px; border: 5px solid #ff69b4;">
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="btn" onclick="previousPhoto()">Previous</button>
+                <button class="btn" onclick="nextPhoto()">Next</button>
+                <button class="btn" onclick="addPhoto()">Add Photo</button>
+            </div>
+        </div>
+
+        <!-- Poem Section -->
+        <div class="section hidden">
+            <h2>Poems for My Rahina</h2>
+            <div id="poemDisplay" class="message-box">
+                <p style="font-style: italic; line-height: 1.8;">Click to reveal a poem...</p>
+            </div>
+            <button class="btn" onclick="showPoem()">Read Poem</button>
+            <button class="btn" onclick="writePoem()">Write New Poem</button>
+        </div>
+
+        <!-- Promise Section -->
+        <div class="section hidden">
+            <h2>My Promises to You</h2>
+            <div id="promisesList"></div>
+            <button class="btn" onclick="addPromise()">Add Promise</button>
+            <button class="btn" onclick="revealAllPromises()">Show All Promises</button>
+        </div>
+
+        <!-- Calendar -->
+        <div class="section hidden">
+            <h2>Our Important Dates</h2>
+            <div id="calendar"></div>
+            <button class="btn" onclick="addImportantDate()">Add Important Date</button>
+        </div>
+
+        <!-- Fortune Teller -->
+        <div class="section hidden">
+            <h2>Our Future Together</h2>
+            <div class="message-box">
+                <div id="fortuneResult">Click to see our future...</div>
+            </div>
+            <button class="btn" onclick="tellFortune()">Tell Our Fortune</button>
+        </div>
+
+        <!-- Love Calculator -->
+        <div class="section hidden">
+            <h2>Love Compatibility</h2>
+            <div style="text-align: center;">
+                <p>Devi ❤️ Rahina</p>
+                <div class="love-meter">
+                    <div class="love-fill" id="compatibilityFill">0%</div>
+                </div>
+                <button class="btn" onclick="calculateLove()">Calculate Compatibility</button>
+            </div>
+        </div>
+
+        <!-- Wish List -->
+        <div class="section hidden">
+            <h2>Our Dreams & Wishes</h2>
+            <div id="wishList"></div>
+            <button class="btn" onclick="addWish()">Add Dream</button>
+        </div>
+
+        <!-- Video Message -->
+        <div class="section hidden">
+            <h2>Video Messages</h2>
+            <div style="text-align: center;">
+                <video id="videoPlayer" width="100%" height="300" controls style="border-radius: 20px;">
+                    <source src="" type="video/mp4">
+                    Your browser does not support video.
+                </video>
+            </div>
+            <button class="btn" onclick="playVideoMessage()">Play Message</button>
+            <button class="btn" onclick="recordVideo()">Record Message</button>
+        </div>
+
+        <!-- Rose Petals -->
+        <div class="section hidden">
+            <h2>Virtual Roses for You</h2>
+            <div style="text-align: center;">
+                <div id="roseCount">0</div>
+                <p>Roses Given</p>
+                <button class="btn" onclick="giveRose()">Give Rose 🌹</button>
+                <button class="btn" onclick="giveBouquet()">Give Bouquet 💐</button>
+            </div>
+        </div>
+
+        <!-- Game Section -->
+        <div class="section hidden">
+            <h2>Play Our Love Game</h2>
+            <div style="text-align: center;">
+                <button class="btn" onclick="startMemoryGame()">Memory Game</button>
+                <button class="btn" onclick="startTicTacToe()">Tic Tac Toe</button>
+                <button class="btn" onclick="startPuzzle()">Love Puzzle</button>
+            </div>
+            <div id="gameArea"></div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="section hidden">
+            <h2>Our Love Timeline</h2>
+            <div id="timeline"></div>
+            <button class="btn" onclick="addTimelineEvent()">Add Event</button>
+        </div>
+
+        <!-- Map Section -->
+        <div class="section hidden">
+            <h2>Places We Love</h2>
+            <div id="mapContainer" style="height: 400px; background: rgba(255,255,255,0.1); border-radius: 20px; display: flex; align-items: center; justify-content: center;">
+                Interactive Map (Add your favorite places)
+            </div>
+            <button class="btn" onclick="addLocation()">Add Location</button>
+        </div>
+
+        <!-- Proposal Section -->
+        <div class="proposal-section hidden" id="finalProposal">
+            <h2>Rahina, Will You Marry Me?</h2>
+            <p style="font-size: 1.3em; margin: 20px 0; line-height: 1.8;">
+                From the moment I met you, I knew you were special. 
+                Every day with you is a blessing, and I can't imagine my life without you. 
+                You make me the happiest person in the world, and I want to spend forever making you happy too.
+            </p>
+            <div class="proposal-buttons">
+                <button class="btn" style="background: #4caf50; font-size: 1.5em;" onclick="sayYes()">YES! 💍</button>
+                <button class="btn" style="background: #ff5722; font-size: 1.5em;" onclick="sayNo()">No 😢</button>
+            </div>
+        </div>
+
+        <!-- Bonus Features -->
+        <div class="section hidden">
+            <h2>More Surprises</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                <button class="btn" onclick="createFireworks()">Fireworks 💥</button>
+                <button class="btn" onclick="danceMode()">Dance Mode 💃</button>
+                <button class="btn" onclick="kissingEffect()">Kissing Effect 💋</button>
+                <button class="btn" onclick="rainEffect()">Love Rain 🌧️</button>
+                <button class="btn" onclick="starEffect()">Star Light ✨</button>
+                <button class="btn" onclick="butterflyEffect()">Butterflies 🦋</button>
+                <button class="btn" onclick="candleEffect()">Candle Light 🕯️</button>
+                <button class="btn" onclick="snowEffect()">Love Snow ❄️</button>
+                <button class="btn" onclick="彩虹Effect()">Rainbow 🌈</button>
+                <button class="btn" onclick="heartRain()">Heart Rain ❤️</button>
+                <button class="btn" onclick="sparkleMode()">Sparkle Mode ✨</button>
+                <button class="btn" onclick="blossomEffect()">Blossom 🌸</button>
+            </div>
+        </div>
+
+        <!-- Final Message -->
+        <div class="section hidden">
+            <h2>One Last Thing...</h2>
+            <div class="message-box" style="text-align: center;">
+                <p style="font-size: 1.5em;">No matter what your answer is, know that I love you with all my heart, Rahina.</p>
+                <p style="font-size: 2em; margin-top: 20px;">Devi ❤️ Rahina</p>
+            </div>
+            <button class="btn" onclick="showFinalSurprise()">Final Surprise 🎁</button>
+        </div>
+    </div>
+
+    <script>
+        // Initialize variables
+        let currentPhotoIndex = 0;
+        let rosesGiven = 0;
+        let lovePercentage = 0;
+        let photos = [];
+        let memories = [];
+        let wishes = [];
+        let promises = [];
+        let timeline = [];
+        let quizQuestions = [
+            { question: "When did we first meet?", options: ["January 2020", "March 2020", "May 2020"], correct: 0 },
+            { question: "What's my favorite food?", options: ["Biryani", "Pizza", "Pasta"], correct: 0 },
+            { question: "Where was our first date?", options: ["Park", "Cinema", "Restaurant"], correct: 2 },
+            { question: "What's your favorite color?", options: ["Red", "Pink", "Blue"], correct: 1 },
+            { question: "What do I call you?", options: ["Babe", "Sweetheart", "My Love"], correct: 2 }
+        ];
+        let currentQuestionIndex = 0;
+        let quizScore = 0;
+
+        // Initialize page
+        window.onload = function() {
+            createFloatingHearts();
+            startCountdown();
+            generateMemories();
+            loadSongs();
+            loadPromises();
+            initParticles();
+            revealOnScroll();
+            setInterval(updateCountdown, 1000);
+        };
+
+        // Floating Hearts Generator
+        function createFloatingHearts() {
+            const container = document.getElementById('heartsContainer');
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.top = Math.random() * 100 + '%';
+                heart.style.animationDelay = Math.random() * 6 + 's';
+                heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+                container.appendChild(heart);
+            }
+        }
+
+        // Love Meter
+        function fillLoveMeter() {
+            const fill = document.getElementById('loveFill');
+            lovePercentage = 0;
+            const interval = setInterval(() => {
+                if (lovePercentage >= 100) {
+                    clearInterval(interval);
+                    showMessage('My love for you is infinite! ❤️');
+                } else {
+                    lovePercentage += 2;
+                    fill.style.width = lovePercentage + '%';
+                    fill.textContent = lovePercentage + '%';
+                }
+            }, 50);
+        }
+
+        // Countdown Timer
+        let targetDate = new Date();
+        targetDate.setDate(targetDate.getDate() + 30); // Default 30 days
+
+        function startCountdown() {
+            updateCountdown();
+        }
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate.getTime() - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+
+            if (distance < 0) {
+                document.querySelector('.countdown').innerHTML = '<h2 style="color: #ff69b4;">🎉 Time to Celebrate! 🎉</h2>';
+            }
+        }
+
+        function setDate() {
+            const input = prompt('Enter the special date (YYYY-MM-DD):');
+            if (input) {
+                targetDate = new Date(input);
+                alert('Date set successfully!');
+            }
+        }
+
+        // Memory Gallery
+        function generateMemories() {
+            const gallery = document.getElementById('memoryGallery');
+            const defaultMemories = [
+                { title: 'First Meeting', desc: 'The day our journey began' },
+                { title: 'First Date', desc: 'Magical moments together' },
+                { title: 'First Kiss', desc: 'When sparks flew' },
+                { title: 'Our Song', desc: 'Music that connects us' },
+                { title: 'Our Place', desc: 'Where we feel at home' },
+                { title: 'Our Dream', desc: 'Future together' }
+            ];
+
+            for (let i = 0; i < 15; i++) {
+                const memory = defaultMemories[i % defaultMemories.length];
+                const card = document.createElement('div');
+                card.className = 'memory-card';
+                card.innerHTML = `
+                    <h3>${memory.title} #${i + 1}</h3>
+                    <p>${memory.desc}</p>
+                    <p>❤️ ${100 + i}</p>
+                `;
+                card.onclick = () => showMemoryDetails(i + 1);
+                gallery.appendChild(card);
+            }
+        }
+
+        function addMemory() {
+            const title = prompt('Enter memory title:');
+            const desc = prompt('Enter memory description:');
+            if (title && desc) {
+                const gallery = document.getElementById('memoryGallery');
+                const card = document.createElement('div');
+                card.className = 'memory-card';
+                card.innerHTML = `
+                    <h3>${title}</h3>
+                    <p>${desc}</p>
+                    <p>❤️ ${Math.floor(Math.random() * 1000)}</p>
+                `;
+                gallery.appendChild(card);
+                showMessage('Memory added! ❤️');
+            }
+        }
+
+        function showMemoryDetails(index) {
+            showMessage(`Memory #${index}: This is one of my favorite memories with you! ❤️`);
+        }
+
+        // Quiz Functions
+        function startQuiz() {
+            currentQuestionIndex = 0;
+            quizScore = 0;
+            showQuestion();
+        }
+
+        function showQuestion() {
+            if (currentQuestionIndex >= quizQuestions.length) {
+                showQuizResult();
+                return;
+            }
+
+            const question = quizQuestions[currentQuestionIndex];
+            document.getElementById('question').textContent = `Question ${currentQuestionIndex + 1}: ${question.question}`;
+            
+            const optionsContainer = document.getElementById('options');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'quiz-option';
+                optionDiv.textContent = option;
+                optionDiv.onclick = () => selectOption(index);
+                optionsContainer.appendChild(optionDiv);
+            });
+        }
+
+        function selectOption(selectedIndex) {
+            const question = quizQuestions[currentQuestionIndex];
+            const options = document.querySelectorAll('.quiz-option');
+            
+            options.forEach((option, index) => {
+                if (index === question.correct) {
+                    option.classList.add('correct');
+                } else if (index === selectedIndex && index !== question.correct) {
+                    option.classList.add('wrong');
+                }
+            });
+
+            if (selectedIndex === question.correct) {
+                quizScore++;
+            }
+
+            setTimeout(() => {
+                currentQuestionIndex++;
+                showQuestion();
+            }, 1500);
+        }
+
+        function showQuizResult() {
+            const percentage = Math.round((quizScore / quizQuestions.length) * 100);
+            let message = '';
+            
+            if (percentage === 100) {
+                message = `Perfect! You got ${quizScore}/${quizQuestions.length} correct! You're my soulmate! ❤️`;
+            } else if (percentage >= 60) {
+                message = `Great job! You got ${quizScore}/${quizQuestions.length} correct! You know me well! 💕`;
+            } else {
+                message = `You got ${quizScore}/${quizQuestions.length} correct. Let's get to know each other more! 💝`;
+            }
+            
+            document.getElementById('quizResult').innerHTML = `<p style="font-size: 1.3em; color: #ff69b4; margin-top: 20px;">${message}</p>`;
+        }
+
+        // Random Messages
+        const loveMessages = [
+            "You are the most beautiful person I've ever met, inside and out.",
+            "Every moment with you is precious and unforgettable.",
+            "You complete me in ways I never thought possible.",
+            "My love for you grows stronger every single day.",
+            "You are my dream come true, Rahina.",
+            "I fall in love with you all over again every time I see you.",
+            "You make my world brighter just by being in it.",
+            "I am blessed to have you in my life.",
+            "You are my everything, my forever, my always.",
+            "I can't wait to build a future with you."
+        ];
+
+        function showRandomMessage() {
+            const randomIndex = Math.floor(Math.random() * loveMessages.length);
+            document.getElementById('messageText').textContent = loveMessages[randomIndex];
+            createMessageEffect();
+        }
+
+        // Songs
+        function loadSongs() {
+            const songs = [
+                { title: "Your Song - Elton John", url: "https://www.youtube.com/watch?v=7jeg_TcM6gU" },
+                { title: "Perfect - Ed Sheeran", url: "https://www.youtube.com/watch?v=2Vv-BfVoq4g" },
+                { title: "All of Me - John Legend", url: "https://www.youtube.com/watch?v=450p7goxZqg" },
+                { title: "A Thousand Years - Christina Perri", url: "https://www.youtube.com/watch?v=rtOvBOTyX00" },
+                { title: "Thinking Out Loud - Ed Sheeran", url: "https://www.youtube.com/watch?v=lp-EO5I60KA" }
+            ];
+            
+            const songList = document.getElementById('songList');
+            songs.forEach((song, index) => {
+                const songDiv = document.createElement('div');
+                songDiv.className = 'memory-card';
+                songDiv.innerHTML = `
+                    <h3>${song.title}</h3>
+                    <button class="btn" onclick="playSong('${song.url}')">Play</button>
+                `;
+                songList.appendChild(songDiv);
+            });
+        }
+
+        function playSong(url) {
+            window.open(url, '_blank');
+            showMessage('Playing your song! ❤️');
+        }
+
+        function playRandomSong() {
+            const randomIndex = Math.floor(Math.random() * 5);
+            const songs = [
+                "https://www.youtube.com/watch?v=7jeg_TcM6gU",
+                "https://www.youtube.com/watch?v=2Vv-BfVoq4g",
+                "https://www.youtube.com/watch?v=450p7goxZqg"
+            ];
+            playSong(songs[randomIndex]);
+        }
+
+        function dedicateSong() {
+            const song = prompt('Enter song name:');
+            if (song) {
+                alert(`Song "${song}" dedicated to Rahina! ❤️`);
+            }
+        }
+
+        // Photo Functions
+        function addPhoto() {
+            const url = prompt('Enter photo URL:');
+            if (url) {
+                photos.push(url);
+                showMessage('Photo added! ❤️');
+            }
+        }
+
+        function nextPhoto() {
+            if (photos.length > 0) {
+                currentPhotoIndex = (currentPhotoIndex + 1) % photos.length;
+                document.getElementById('currentPhoto').src = photos[currentPhotoIndex];
+            } else {
+                showMessage('Add some photos first! ❤️');
+            }
+        }
+
+        function previousPhoto() {
+            if (photos.length > 0) {
+                currentPhotoIndex = currentPhotoIndex === 0 ? photos.length - 1 : currentPhotoIndex - 1;
+                document.getElementById('currentPhoto').src = photos[currentPhotoIndex];
+            } else {
+                showMessage('Add some photos first! ❤️');
+            }
+        }
+
+        // Poems
+        function showPoem() {
+            const poems = [
+                `Roses are red, violets are blue,
+                Every moment with you feels brand new.
+                Your smile lights up my darkest night,
+                With you, everything feels so right.`,
+
+                `In your eyes, I see my home,
+                With you, I never feel alone.
+                Your touch, your kiss, your gentle smile,
+                Makes every second worth the while.`,
+
+                `Rahina, my love, my heart, my soul,
+                With you, I finally feel whole.
+                I promise to love you every day,
+                    In every possible way.`
+            ];
+            
+            const randomIndex = Math.floor(Math.random() * poems.length);
+            document.getElementById('poemDisplay').innerHTML = `<pre style="font-style: italic; line-height: 1.8; white-space: pre-wrap;">${poems[randomIndex]}</pre>`;
+        }
+
+        function writePoem() {
+            const poem = prompt('Write your poem for Rahina:');
+            if (poem) {
+                document.getElementById('poemDisplay').innerHTML = `<pre style="font-style: italic; line-height: 1.8; white-space: pre-wrap;">${poem}</pre>`;
+                showMessage('Beautiful poem! ❤️');
+            }
+        }
+
+        // Promises
+        function loadPromises() {
+            const defaultPromises = [
+                "I promise to always make you smile",
+                "I promise to support your dreams",
+                "I promise to be your best friend",
+                "I promise to love you unconditionally"
+            ];
+            promises = [...defaultPromises];
+        }
+
+        function addPromise() {
+            const promise = prompt('Enter your promise:');
+            if (promise) {
+                promises.push(promise);
+                showMessage('Promise added! 💍');
+            }
+        }
+
+        function revealAllPromises() {
+            const promisesList = document.getElementById('promisesList');
+            promisesList.innerHTML = '<h3 style="color: #ff69b4; margin-bottom: 20px;">My Promises to You:</h3>';
+            
+            promises.forEach((promise, index) => {
+                const promiseDiv = document.createElement('div');
+                promiseDiv.className = 'memory-card';
+                promiseDiv.style.animationDelay = `${index * 0.1}s`;
+                promiseDiv.innerHTML = `
+                    <h3>Promise #${index + 1}</h3>
+                    <p>${promise}</p>
+                    <p>💖</p>
+                `;
+                promisesList.appendChild(promiseDiv);
+            });
+        }
+
+        // Calendar
+        function addImportantDate() {
+            const date = prompt('Enter date (YYYY-MM-DD):');
+            const event = prompt('Enter event name:');
+            if (date && event) {
+                const calendar = document.getElementById('calendar');
+                const dateDiv = document.createElement('div');
+                dateDiv.className = 'memory-card';
+                dateDiv.innerHTML = `
+                    <h3>${event}</h3>
+                    <p>${date}</p>
+                `;
+                calendar.appendChild(dateDiv);
+                showMessage('Date added! 📅');
+            }
+        }
+
+        // Fortune Teller
+        function tellFortune() {
+            const fortunes = [
+                "We will have a beautiful life together full of love and laughter.",
+                "Our future holds amazing adventures and wonderful memories.",
+                "We will grow old together, still holding hands.",
+                "Our love story will be legendary.",
+                "We will have a happy family filled with joy.",
+                "Together, we can conquer anything.",
+                "Our bond will only grow stronger with time.",
+                "We are soulmates destined to be together forever."
+            ];
+            
+            const randomIndex = Math.floor(Math.random() * fortunes.length);
+            document.getElementById('fortuneResult').textContent = fortunes[randomIndex];
+            createFireworks();
+        }
+
+        // Love Calculator
+        function calculateLove() {
+            const fill = document.getElementById('compatibilityFill');
+            let percentage = 0;
+            
+            const interval = setInterval(() => {
+                if (percentage >= 100) {
+                    clearInterval(interval);
+                    showMessage('We are 100% compatible! Perfect match! ❤️');
+                } else {
+                    percentage += 2;
+                    fill.style.width = percentage + '%';
+                    fill.textContent = percentage + '%';
+                }
+            }, 50);
+        }
+
+        // Wish List
+        function addWish() {
+            const wish = prompt('Enter your dream/wish:');
+            if (wish) {
+                wishes.push(wish);
+                const wishList = document.getElementById('wishList');
+                const wishDiv = document.createElement('div');
+                wishDiv.className = 'memory-card';
+                wishDiv.innerHTML = `
+                    <h3>Dream #${wishes.length}</h3>
+                    <p>${wish}</p>
+                    <p>⭐</p>
+                `;
+                wishList.appendChild(wishDiv);
+                showMessage('Dream added! ✨');
+            }
+        }
+
+        // Video Messages
+        function playVideoMessage() {
+            alert('Video message feature - Add your video URL here!');
+        }
+
+        function recordVideo() {
+            alert('Video recording feature - This would access camera in real implementation!');
+        }
+
+        // Rose Effects
+        function giveRose() {
+            rosesGiven++;
+            document.getElementById('roseCount').textContent = rosesGiven;
+            showMessage(`You gave Rahina a rose! 🌹 Total: ${rosesGiven}`);
+            createRoseEffect();
+        }
+
+        function giveBouquet() {
+            rosesGiven += 12;
+            document.getElementById('roseCount').textContent = rosesGiven;
+            showMessage(`You gave Rahina a bouquet! 💐 Total: ${rosesGiven}`);
+            createBouquetEffect();
+        }
+
+        // Games
+        function startMemoryGame() {
+            const gameArea = document.getElementById('gameArea');
+            gameArea.innerHTML = '<p>Memory Game: Click cards to find matches!</p>';
+            showMessage('Memory game started!');
+        }
+
+        function startTicTacToe() {
+            const gameArea = document.getElementById('gameArea');
+            gameArea.innerHTML = '<p>Tic Tac Toe: X starts!</p>';
+            showMessage('Tic Tac Toe started!');
+        }
+
+        function startPuzzle() {
+            const gameArea = document.getElementById('gameArea');
+            gameArea.innerHTML = '<p>Love Puzzle: Arrange pieces!</p>';
+            showMessage('Puzzle game started!');
+        }
+
+        // Timeline
+        function addTimelineEvent() {
+            const event = prompt('Enter event:');
+            const date = prompt('Enter date:');
+            if (event && date) {
+                timeline.push({ event, date });
+                showMessage('Timeline event added! 📅');
+            }
+        }
+
+        // Map
+        function addLocation() {
+            const location = prompt('Enter location name:');
+            if (location) {
+                showMessage(`Location "${location}" added to our map! 📍`);
+            }
+        }
+
+        // Proposal Functions
+        function sayYes() {
+            showMessage('🎉 YES! YES! YES! I LOVE YOU! 🎉');
+            createGrandFireworks();
+            alert('Congratulations! You made me the happiest person alive! 💍❤️');
+        }
+
+        function sayNo() {
+            showMessage('😢 I will wait for you forever...');
+            alert('I will continue to love you and hope you change your mind. Take your time. 💔');
+        }
+
+        // Special Effects
+        function createFireworks() {
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    const firework = document.createElement('div');
+                    firework.className = 'firework';
+                    firework.style.left = Math.random() * 100 + '%';
+                    firework.style.top = Math.random() * 100 + '%';
+                    firework.style.background = ['#ff00cc', '#3333ff', '#00ff00', '#ffff00', '#ff0000'][Math.floor(Math.random() * 5)];
+                    document.body.appendChild(firework);
+                    
+                    for (let j = 0; j < 30; j++) {
+                        const particle = document.createElement('div');
+                        particle.style.position = 'absolute';
+                        particle.style.width = '4px';
+                        particle.style.height = '4px';
+                        particle.style.background = firework.style.background;
+                        particle.style.borderRadius = '50%';
+                        particle.style.setProperty('--x', (Math.random() - 0.5) * 200 + 'px');
+                        particle.style.setProperty('--y', (Math.random() - 0.5) * 200 + 'px');
+                        firework.appendChild(particle);
+                    }
+                    
+                    setTimeout(() => firework.remove(), 1000);
+                }, i * 200);
+            }
+        }
+
+        function createGrandFireworks() {
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => createFireworks(), i * 300);
+            }
+        }
+
+        function danceMode() {
+            document.body.style.animation = 'pulse 0.5s infinite';
+            setTimeout(() => document.body.style.animation = '', 5000);
+            showMessage('Dance mode activated! 💃🕺');
+        }
+
+        function kissingEffect() {
+            showMessage('💋 Sending you kisses! 💋');
+            createKissEffects();
+        }
+
+        function rainEffect() {
+            showMessage('🌧️ Love is raining down! 🌧️');
+            createRainEffect();
+        }
+
+        function starEffect() {
+            showMessage('✨ You are my shining star! ✨');
+            createStarEffect();
+        }
+
+        function butterflyEffect() {
+            showMessage('🦋 Butterflies in my stomach! 🦋');
+            createButterflyEffect();
+        }
+
+        function candleEffect() {
+            showMessage('🕯️ You light up my life! 🕯️');
+            createCandleEffect();
+        }
+
+        function snowEffect() {
+            showMessage('❄️ Love is in the air! ❄️');
+            createSnowEffect();
+        }
+
+        function 彩虹Effect() {
+            showMessage('🌈 You are my rainbow after the storm! 🌈');
+            createRainbowEffect();
+        }
+
+        function heartRain() {
+            showMessage('❤️ Hearts raining for you! ❤️');
+            createHeartRain();
+        }
+
+        function sparkleMode() {
+            showMessage('✨ Sparkle mode activated! ✨');
+            createSparkleEffect();
+        }
+
+        function blossomEffect() {
+            showMessage('🌸 Love is blossoming! 🌸');
+            createBlossomEffect();
+        }
+
+        // Helper Effects
+        function createKissEffects() {
+            for (let i = 0; i < 10; i++) {
+                const kiss = document.createElement('div');
+                kiss.textContent = '💋';
+                kiss.style.position = 'fixed';
+                kiss.style.fontSize = '30px';
+                kiss.style.left = Math.random() * 100 + '%';
+                kiss.style.top = Math.random() * 100 + '%';
+                kiss.style.animation = 'float 3s ease-in-out infinite';
+                document.body.appendChild(kiss);
+                setTimeout(() => kiss.remove(), 3000);
+            }
+        }
+
+        function createRoseEffect() {
+            const rose = document.createElement('div');
+            rose.textContent = '🌹';
+            rose.style.position = 'fixed';
+            rose.style.fontSize = '50px';
+            rose.style.left = '50%';
+            rose.style.top = '50%';
+            rose.style.transform = 'translate(-50%, -50%)';
+            rose.style.animation = 'bloom 2s ease-in-out';
+            document.body.appendChild(rose);
+            setTimeout(() => rose.remove(), 2000);
+        }
+
+        function createBouquetEffect() {
+            for (let i = 0; i < 12; i++) {
+                setTimeout(() => {
+                    const rose = document.createElement('div');
+                    rose.textContent = '🌹';
+                    rose.style.position = 'fixed';
+                    rose.style.fontSize = '40px';
+                    rose.style.left = Math.random() * 100 + '%';
+                    rose.style.top = Math.random() * 100 + '%';
+                    rose.style.animation = 'bloom 1s ease-in-out';
+                    document.body.appendChild(rose);
+                    setTimeout(() => rose.remove(), 1000);
+                }, i * 100);
+            }
+        }
+
+        function createRainEffect() {
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const drop = document.createElement('div');
+                    drop.textContent = '💧';
+                    drop.style.position = 'fixed';
+                    drop.style.left = Math.random() * 100 + '%';
+                    drop.style.top = '-20px';
+                    drop.style.fontSize = '20px';
+                    drop.style.animation = 'fall 3s linear forwards';
+                    document.body.appendChild(drop);
+                    setTimeout(() => drop.remove(), 3000);
+                }, i * 100);
+            }
+        }
+
+        function createStarEffect() {
+            for (let i = 0; i < 20; i++) {
+                const star = document.createElement('div');
+                star.textContent = '⭐';
+                star.style.position = 'fixed';
+                star.style.fontSize = '30px';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animation = 'twinkle 1s ease-in-out infinite';
+                document.body.appendChild(star);
+                setTimeout(() => star.remove(), 3000);
+            }
+        }
+
+        function createButterflyEffect() {
+            for (let i = 0; i < 15; i++) {
+                const butterfly = document.createElement('div');
+                butterfly.textContent = '🦋';
+                butterfly.style.position = 'fixed';
+                butterfly.style.fontSize = '25px';
+                butterfly.style.left = Math.random() * 100 + '%';
+                butterfly.style.top = Math.random() * 100 + '%';
+                butterfly.style.animation = 'fly 4s ease-in-out infinite';
+                document.body.appendChild(butterfly);
+                setTimeout(() => butterfly.remove(), 4000);
+            }
+        }
+
+        function createSnowEffect() {
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    const snowflake = document.createElement('div');
+                    snowflake.textContent = '❄️';
+                    snowflake.style.position = 'fixed';
+                    snowflake.style.left = Math.random() * 100 + '%';
+                    snowflake.style.top = '-20px';
+                    snowflake.style.fontSize = '20px';
+                    snowflake.style.animation = 'fall 5s linear forwards';
+                    document.body.appendChild(snowflake);
+                    setTimeout(() => snowflake.remove(), 5000);
+                }, i * 200);
+            }
+        }
+
+        function createRainbowEffect() {
+            const colors = ['🔴', '🟠', '🟡', '🟢', '🔵', '🟣'];
+            colors.forEach((color, index) => {
+                setTimeout(() => {
+                    const rainbowPart = document.createElement('div');
+                    rainbowPart.textContent = color;
+                    rainbowPart.style.position = 'fixed';
+                    rainbowPart.style.fontSize = '40px';
+                    rainbowPart.style.left = (10 * index) + '%';
+                    rainbowPart.style.top = '50%';
+                    rainbowPart.style.transform = 'translateY(-50%)';
+                    rainbowPart.style.animation = 'slideIn 1s ease-in-out';
+                    document.body.appendChild(rainbowPart);
+                    setTimeout(() => rainbowPart.remove(), 3000);
+                }, index * 200);
+            });
+        }
+
+        function createHeartRain() {
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.textContent = '❤️';
+                    heart.style.position = 'fixed';
+                    heart.style.left = Math.random() * 100 + '%';
+                    heart.style.top = '-20px';
+                    heart.style.fontSize = '30px';
+                    heart.style.animation = 'fall 3s linear forwards';
+                    document.body.appendChild(heart);
+                    setTimeout(() => heart.remove(), 3000);
+                }, i * 150);
+            }
+        }
+
+        function createSparkleEffect() {
+            for (let i = 0; i < 30; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.textContent = '✨';
+                sparkle.style.position = 'fixed';
+                sparkle.style.fontSize = '20px';
+                sparkle.style.left = Math.random() * 100 + '%';
+                sparkle.style.top = Math.random() * 100 + '%';
+                sparkle.style.animation = 'twinkle 0.5s ease-in-out infinite';
+                document.body.appendChild(sparkle);
+                setTimeout(() => sparkle.remove(), 1500);
+            }
+        }
+
+        function createBlossomEffect() {
+            for (let i = 0; i < 15; i++) {
+                const blossom = document.createElement('div');
+                blossom.textContent = '🌸';
+                blossom.style.position = 'fixed';
+                blossom.style.fontSize = '25px';
+                blossom.style.left = Math.random() * 100 + '%';
+                blossom.style.top = Math.random() * 100 + '%';
+                blossom.style.animation = 'bloom 2s ease-in-out infinite';
+                document.body.appendChild(blossom);
+                setTimeout(() => blossom.remove(), 2000);
+            }
+        }
+
+        // Additional CSS for animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fall {
+                to { transform: translateY(100vh); }
+            }
+            @keyframes twinkle {
+                0%, 100% { opacity: 0; }
+                50% { opacity: 1; }
+            }
+            @keyframes fly {
+                0% { transform: translate(0, 0); }
+                25% { transform: translate(100px, -50px); }
+                50% { transform: translate(-50px, -100px); }
+                75% { transform: translate(50px, -150px); }
+                100% { transform: translate(0, -200px); }
+            }
+            @keyframes slideIn {
+                from { transform: translateX(-100px) translateY(-50%); opacity: 0; }
+                to { transform: translateX(0) translateY(-50%); opacity: 1; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Audio Messages
+        function playAudioMessage() {
+            alert('Audio message would play here! Record your voice for Rahina!');
+        }
+
+        // Message Effect
+        function createMessageEffect() {
+            createSparkleEffect();
+        }
+
+        // Final Surprise
+        function showFinalSurprise() {
+            const surprises = [
+                () => createGrandFireworks(),
+                () => {
+                    danceMode();
+                    createHeartRain();
+                },
+                () => {
+                    showMessage('🎁 SURPRISE! You are the best thing that ever happened to me! 🎁');
+                    createFireworks();
+                },
+                () => {
+                    alert('🌟 You are my everything, Rahina! I love you forever! 🌟');
+                    document.body.style.background = 'linear-gradient(135deg, #f093fb, #f5576c)';
+                }
+            ];
+            
+            const randomSurprise = surprises[Math.floor(Math.random() * surprises.length)];
+            randomSurprise();
+        }
+
+        // Helper Functions
+        function showMessage(message) {
+            const messageDiv = document.createElement('div');
+            messageDiv.textContent = message;
+            messageDiv.style.position = 'fixed';
+            messageDiv.style.bottom = '20px';
+            messageDiv.style.left = '50%';
+            messageDiv.style.transform = 'translateX(-50%)';
+            messageDiv.style.background = 'rgba(255, 105, 180, 0.9)';
+            messageDiv.style.color = 'white';
+            messageDiv.style.padding = '15px 30px';
+            messageDiv.style.borderRadius = '30px';
+            messageDiv.style.fontSize = '1.2em';
+            messageDiv.style.zIndex = '1000';
+            messageDiv.style.animation = 'fadeIn 0.5s ease-in';
+            document.body.appendChild(messageDiv);
+            
+            setTimeout(() => messageDiv.remove(), 3000);
+        }
+
+        // Scroll Animation
+        function revealOnScroll() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                    }
+                });
+            });
+            
+            document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
+        }
+
+        // Particle System
+        function initParticles() {
+            const canvas = document.getElementById('particleCanvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            const particles = [];
+            const particleCount = 100;
+            
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.vx = (Math.random() - 0.5) * 0.5;
+                    this.vy = (Math.random() - 0.5) * 0.5;
+                    this.size = Math.random() * 2 + 1;
+                    this.color = `hsl(${Math.random() * 60 + 300}, 100%, 50%)`;
+                }
+                
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    
+                    if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                    if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+                }
+                
+                draw() {
+                    ctx.fillStyle = this.color;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+            
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+            
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(particle => {
+                    particle.update();
+                    particle.draw();
+                });
+                requestAnimationFrame(animate);
+            }
+            
+            animate();
+            
+            window.addEventListener('resize', () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
+        }
+
+        // Add more floating hearts periodically
+        setInterval(() => {
+            const heartsContainer = document.getElementById('heartsContainer');
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.top = '100%';
+            heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+            heart.style.animation = 'float 6s ease-in-out forwards';
+            heartsContainer.appendChild(heart);
+            
+            setTimeout(() => heart.remove(), 6000);
+        }, 3000);
+    </script>
+</body>
+</html>
